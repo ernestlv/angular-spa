@@ -28,17 +28,17 @@
   <body>
     <script>
       System.import('single-spa').then(function (singleSpa) {
-        singleSpa.registerApplication(
+        /*singleSpa.registerApplication(
           'navbar',
           () => System.import('navbar'),
           location => true
-        )
+        )*/
 
-        singleSpa.registerApplication(
+        /*singleSpa.registerApplication(
           'app1',
           () => System.import('app1'),
           location => location.pathname.startsWith('/app1')
-        );
+        );*/
 
         singleSpa.registerApplication(
           'app2',
