@@ -12,8 +12,15 @@ if (environment.production) {
   enableProdMode();
 }
 
+
 const angularLifecycles = singleSpaAngular({
-  bootstrapFunction: () => platformBrowserDynamic().bootstrapModule(AppModule),
+  bootstrapFunction: () => platformBrowserDynamic().bootstrapModule(AppModule).then( module => {
+    const ngZone = module.injector.get(NgZone);
+    window.addEventListener('single-spa:routing-event', () => {
+      ngZone.run(() => console.log("Angular Zone Run!!!"))
+    });
+    return module;
+  }),
   template: '<app2-root />',
   Router,
   NgZone: NgZone,

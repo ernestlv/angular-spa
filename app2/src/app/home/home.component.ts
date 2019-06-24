@@ -10,8 +10,13 @@ export class HomeComponent implements OnInit {
   constructor() { }
 
   homeUpdate;
-  ngOnInit() {
+  myInit() {
     setTimeout(() => this.homeUpdate = "Home Updated @ "+(new Date()))
+    console.log("myInit")
+  }
+
+  ngOnInit(){
+    this.myInit();
   }
 
 }
